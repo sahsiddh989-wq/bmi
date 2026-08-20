@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BMI and health calculator with BMI category, healthy weight range, BMR and daily calorie estimates." />
+  <title>VitalCheck — BMI & Health Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="VitalCheck home"><span class="brand-mark">+</span> VitalCheck</a>
+    <a class="github" href="https://github.com/sahsiddh989-wq/bmi" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+
+  <main id="top" class="page-shell">
+    <section class="hero reveal">
+      <div>
+        <p class="eyebrow">PERSONAL HEALTH SNAPSHOT</p>
+        <h1>Understand your body.<br><span>Build healthier habits.</span></h1>
+        <p class="hero-copy">Calculate BMI, estimated BMR, daily calorie needs and a healthy weight range in seconds.</p>
+      </div>
+      <div class="pulse-card" aria-hidden="true">
+        <div class="pulse-line"></div>
+        <div class="pulse-dot"></div>
+        <span>Health starts with awareness</span>
+      </div>
+    </section>
+
+    <section class="calculator-grid reveal">
+      <article class="card form-card">
+        <div class="card-heading">
+          <div><p class="section-kicker">STEP 01</p><h2>Your details</h2></div>
+          <span class="status-dot">● Ready</span>
+        </div>
+
+        <div class="unit-switch" role="group" aria-label="Unit system">
+          <button class="unit-btn active" data-unit="metric" type="button">Metric <small>kg · cm</small></button>
+          <button class="unit-btn" data-unit="imperial" type="button">Imperial <small>lb · in</small></button>
+        </div>
+
+        <div class="field-row">
+          <label>Age <span>years</span><input id="age" type="number" min="2" max="120" placeholder="25" /></label>
+          <label>Sex <span>optional</span><select id="sex"><option value="male">Male</option><option value="female">Female</option></select></label>
+        </div>
+        <div class="field-row">
+          <label id="height-label">Height <span>cm</span><input id="height" type="number" min="80" max="250" placeholder="175" /></label>
+          <label id="weight-label">Weight <span>kg</span><input id="weight" type="number" min="20" max="400" placeholder="70" /></label>
+        </div>
+        <label>Activity level
+          <select id="activity">
+            <option value="1.2">Sedentary — little exercise</option>
+            <option value="1.375">Light — 1–3 days/week</option>
+            <option value="1.55" selected>Moderate — 3–5 days/week</option>
+            <option value="1.725">Very active — 6–7 days/week</option>
+            <option value="1.9">Athlete — hard training</option>
+          </select>
+        </label>
+        <button id="calculate" class="primary-btn" type="button">Calculate my health profile <span>→</span></button>
+        <p class="privacy-note">Your inputs stay in this browser. This tool is educational, not medical advice.</p>
+      </article>
+
+      <article class="card result-card" id="results" aria-live="polite">
+        <div class="card-heading">
+          <div><p class="section-kicker">STEP 02</p><h2>Your results</h2></div>
+          <span class="result-badge">Overview</span>
+        </div>
+        <div class="score-wrap">
+          <div class="score-ring"><div><strong id="bmi-value">—</strong><small>BMI</small></div></div>
+          <div><p class="result-label">Category</p><h3 id="bmi-category">Enter your details</h3><p id="bmi-message">Your personalized results will appear here.</p></div>
+        </div>
+        <div class="range-bar"><span class="marker" id="range-marker"></span></div>
+        <div class="range-labels"><span>Underweight<br><b>&lt; 18.5</b></span><span>Healthy<br><b>18.5–24.9</b></span><span>Overweight<br><b>25–29.9</b></span><span>Obesity<br><b>30+</b></span></div>
+        <div class="metric-grid">
+          <div class="metric"><span>Healthy weight</span><strong id="healthy-weight">—</strong></div>
+          <div class="metric"><span>Estimated BMR</span><strong id="bmr">—</strong></div>
+          <div class="metric"><span>Daily calories</span><strong id="calories">—</strong></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="info-grid reveal">
+      <article class="info-card"><span class="info-icon">01</span><h3>What is BMI?</h3><p>BMI is a screening measure based on weight relative to height. It can help identify broad weight categories, but it does not directly measure body fat or overall health.</p></article>
+      <article class="info-card"><span class="info-icon">02</span><h3>Healthy weight range</h3><p>The range shown uses the standard adult BMI range of 18.5–24.9. Individual goals can differ based on age, muscle mass and other factors.</p></article>
+      <article class="info-card"><span class="info-icon">03</span><h3>Use it as a guide</h3><p>For children, pregnancy, athletes or medical conditions, BMI may not be appropriate. Speak with a qualified healthcare professional for personal guidance.</p></article>
+    </section>
+  </main>
+
+  <footer><span>VitalCheck © 2026</span><span>Made for simple, informed health tracking.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
